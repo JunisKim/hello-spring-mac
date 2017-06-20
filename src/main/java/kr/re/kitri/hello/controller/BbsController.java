@@ -14,10 +14,8 @@ import java.util.List;
  * /bbs/{articleId} .. 상세보기(15번 글)
  * /bbs/{articleId}/modify ..수정(15번 글 수정)
  * /bbs/{articleId}/remove .. 삭제(15번 글 삭제)
- *
  * /bbs/write .. 글 작성화면 로딩
  * /bbs/write/do .. 글 작성하기
- *
  */
 @Controller
 @RequestMapping("/bbs")
@@ -36,6 +34,20 @@ public class BbsController {
     }
 
     /**
+     * 글 전체보기 API버전
+     * /bbs/api ... 전체보기 (API)
+     *
+     * 1. @ResponseBody
+     * 2. 리턴타입을 List<Article> 을 리턴한다. 그러면 JSON으로 변환해 줄 것이다.
+     */
+
+    @RequestMapping("/api")
+    @ResponseBody
+    public List<Article> viewAllApi() {
+        return service.viewArticles();
+    }
+
+    /**
      * 글 상세 보기
      * @param articleId
      * @return
@@ -47,6 +59,14 @@ public class BbsController {
 
         ModelAndView mav = new ModelAndView();
         return  new ModelAndView("bbs/bbs_detail").addObject(article);
+    }
+
+    @RequestMapping("/{articleId}/api")
+    @ResponseBody
+    public Article viewDetailApi(@PathVariable String articleId) {
+        Article article= service.viewArticle(articleId);
+
+        return article;
     }
 
     @RequestMapping("/{articleId}/modify")
@@ -93,6 +113,12 @@ public class BbsController {
         mav.addObject(article);
 
         return mav;
+    }
+
+    @PostMapping("/write/api")
+    public String doWriteApi(@RequestBody Article article) {
+        service.registArticle(article);
+        return "/bbs/view_all";
     }
 
 

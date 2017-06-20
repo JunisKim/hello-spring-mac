@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Sign Up Completed</title>
 </head>
-<body>
+<body style="margin: 10px">
 
+<h1>Sign Up Completed</h1>
+<br><br><br>
+<h3>${member.userId}님 환영합니다.</h3>
+<br>
+<a href="/post">돌아가기</a>
 </body>
 </html>

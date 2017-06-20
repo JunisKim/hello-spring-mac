@@ -64,8 +64,8 @@ public class PostDao implements BoardDao{
 
         return jdbcTemplate.query(query,
                 (rs, i) -> {
-                    Post post = new Post();
                     Member member = new Member();
+                    Post post = new Post();
                     post.setPostSeq(rs.getInt(1));
                     post.setTitle(rs.getString(2));
                     post.setContent(rs.getString(3));

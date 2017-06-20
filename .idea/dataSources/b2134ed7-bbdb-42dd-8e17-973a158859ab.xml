@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-06-18.22:29:34.206</IntrospectionTimestamp>
-      <IntrospectionStateNumber>552</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-06-19.13:07:24.518</IntrospectionTimestamp>
+      <IntrospectionStateNumber>618</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -29,38 +29,185 @@
     <schema id="8" parent="2" name="information_schema">
       <ObjectId>12119</ObjectId>
     </schema>
-    <sequence id="9" parent="3" name="test_test_num_seq">
-      <ObjectId>16384</ObjectId>
-      <StateNumber>551</StateNumber>
+    <sequence id="9" parent="3" name="article_article_id_seq">
+      <ObjectId>16423</ObjectId>
+      <StateNumber>614</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <table id="10" parent="3" name="test">
-      <ObjectId>16386</ObjectId>
-      <StateNumber>552</StateNumber>
+    <sequence id="10" parent="3" name="member_member_seq_seq">
+      <ObjectId>16408</ObjectId>
+      <StateNumber>594</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="11" parent="3" name="post_post_seq_seq">
+      <ObjectId>16397</ObjectId>
+      <StateNumber>593</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="12" parent="3" name="amigo">
+      <ObjectId>16392</ObjectId>
+      <StateNumber>567</StateNumber>
     </table>
-    <column id="11" parent="10" name="test_num">
+    <table id="13" parent="3" name="article">
+      <ObjectId>16425</ObjectId>
+      <StateNumber>614</StateNumber>
+    </table>
+    <table id="14" parent="3" name="member">
+      <ObjectId>16410</ObjectId>
+      <StateNumber>594</StateNumber>
+    </table>
+    <table id="15" parent="3" name="post">
+      <ObjectId>16399</ObjectId>
+      <StateNumber>593</StateNumber>
+    </table>
+    <column id="16" parent="12" name="amigo_name">
+      <Position>1</Position>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>567</StateNumber>
+    </column>
+    <column id="17" parent="12" name="amigo_number">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>567</StateNumber>
+    </column>
+    <column id="18" parent="12" name="amigo_email">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>567</StateNumber>
+    </column>
+    <index id="19" parent="12" name="amigo_pkey">
+      <ObjectId>16395</ObjectId>
+      <ColNames>amigo_number</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="20" parent="12" name="amigo_pkey">
+      <ObjectId>16396</ObjectId>
+      <ColNames>amigo_number</ColNames>
+      <UnderlyingIndexName>amigo_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="13" name="article_id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>551</StateNumber>
-      <SequenceName>test_test_num_seq</SequenceName>
-      <DefaultExpression>nextval(&apos;test_test_num_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>614</StateNumber>
+      <SequenceName>article_article_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;article_article_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="12" parent="10" name="test_name">
+    <column id="22" parent="13" name="title">
       <Position>2</Position>
-      <DataType>varchar(50)|0</DataType>
-      <StateNumber>552</StateNumber>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>614</StateNumber>
     </column>
-    <index id="13" parent="10" name="test_pkey">
-      <ObjectId>16390</ObjectId>
-      <ColNames>test_num</ColNames>
+    <column id="23" parent="13" name="writer">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>614</StateNumber>
+    </column>
+    <column id="24" parent="13" name="content">
+      <Position>4</Position>
+      <DataType>varchar(5000)|0</DataType>
+      <StateNumber>614</StateNumber>
+    </column>
+    <index id="25" parent="13" name="article_pkey">
+      <ObjectId>16432</ObjectId>
+      <ColNames>article_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="14" parent="10" name="test_pkey">
-      <ObjectId>16391</ObjectId>
-      <ColNames>test_num</ColNames>
-      <UnderlyingIndexName>test_pkey</UnderlyingIndexName>
+    <key id="26" parent="13" name="article_pkey">
+      <ObjectId>16433</ObjectId>
+      <ColNames>article_id</ColNames>
+      <UnderlyingIndexName>article_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="14" name="member_seq">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>594</StateNumber>
+      <SequenceName>member_member_seq_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;member_member_seq_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="28" parent="14" name="user_id">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>618</StateNumber>
+    </column>
+    <column id="29" parent="14" name="password">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>596</StateNumber>
+    </column>
+    <column id="30" parent="14" name="email">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>594</StateNumber>
+    </column>
+    <column id="31" parent="14" name="point">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>594</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="32" parent="14" name="join_date">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>594</StateNumber>
+    </column>
+    <index id="33" parent="14" name="member_pkey">
+      <ObjectId>16415</ObjectId>
+      <ColNames>member_seq</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="34" parent="14" name="member_pkey">
+      <ObjectId>16416</ObjectId>
+      <ColNames>member_seq</ColNames>
+      <UnderlyingIndexName>member_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="15" name="post_seq">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>593</StateNumber>
+      <SequenceName>post_post_seq_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;post_post_seq_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="36" parent="15" name="title">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>593</StateNumber>
+    </column>
+    <column id="37" parent="15" name="content">
+      <Position>3</Position>
+      <DataType>varchar(5000)|0</DataType>
+      <StateNumber>593</StateNumber>
+    </column>
+    <column id="38" parent="15" name="write_date">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>593</StateNumber>
+    </column>
+    <column id="39" parent="15" name="member_seq">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>593</StateNumber>
+    </column>
+    <index id="40" parent="15" name="post_pkey">
+      <ObjectId>16406</ObjectId>
+      <ColNames>post_seq</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="41" parent="15" name="post_pkey">
+      <ObjectId>16407</ObjectId>
+      <ColNames>post_seq</ColNames>
+      <UnderlyingIndexName>post_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
   </database-model>
